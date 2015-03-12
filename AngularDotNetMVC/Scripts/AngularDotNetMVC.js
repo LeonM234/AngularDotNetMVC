@@ -15,7 +15,11 @@ var configFunction = function ($routeProvider, $httpProvider) {
         })
         .when('/routeThree', {
             templateUrl: 'routesDemo/three'
-        });
+        })
+        .when('/login?returnUrl', {
+            templateUrl: 'Account/Login',
+            controller: LoginController
+         });
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
 configFunction.$inject = ['$routeProvider', '$httpProvider'];
