@@ -5,6 +5,7 @@ AngularDotNetMVC.controller('LoginController', LoginController);
 AwesomeAngularMVCApp.controller('RegisterController', RegisterController);
 
 AngularDotNetMVC.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
+AngularDotNetMVC.factory('LoginFactory', LoginFactory);
 
 var configFunction = function ($routeProvider, $httpProvider) {
     $routeProvider.
