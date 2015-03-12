@@ -11,6 +11,7 @@ namespace AngularDotNetMVC
 
             bundles.Add(new ScriptBundle("~/bundles/AngularDotNetMVC")
                 .IncludeDirectory("~/Scripts/Controllers", "*.js")
+                .IncludeDirectory("~/Scripts/Factories", "*.js")
                 .Include("~/Scripts/AngularDotNetMVC.js"));
 
             BundleTable.EnableOptimizations = true;

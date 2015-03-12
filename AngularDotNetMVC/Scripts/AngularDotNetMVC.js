@@ -1,8 +1,11 @@
 ﻿var AngularDotNetMVC = angular.module('AngularDotNetMVC', ['ngRoute']);
 
 AngularDotNetMVC.controller('LandingPageController', LandingPageController);
+AngularDotNetMVC.controller('LoginController', LoginController);
 
-var configFunction = function ($routeProvider) {
+AngularDotNetMVC.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
+
+var configFunction = function ($routeProvider, $httpProvider) {
     $routeProvider.
         when('/routeOne', {
             templateUrl: 'routesDemo/one'
@@ -13,7 +16,8 @@ var configFunction = function ($routeProvider) {
         .when('/routeThree', {
             templateUrl: 'routesDemo/three'
         });
+    $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
-configFunction.$inject = ['$routeProvider'];
+configFunction.$inject = ['$routeProvider', '$httpProvider'];
 
 AngularDotNetMVC.config(configFunction);
