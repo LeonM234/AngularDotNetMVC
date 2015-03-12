@@ -2,6 +2,7 @@
 
 AngularDotNetMVC.controller('LandingPageController', LandingPageController);
 AngularDotNetMVC.controller('LoginController', LoginController);
+AwesomeAngularMVCApp.controller('RegisterController', RegisterController);
 
 AngularDotNetMVC.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 
@@ -19,7 +20,11 @@ var configFunction = function ($routeProvider, $httpProvider) {
         .when('/login?returnUrl', {
             templateUrl: 'Account/Login',
             controller: LoginController
-         });
+        })
+        .when('/register', {
+            templateUrl: '/Account/Register',
+            controller: RegisterController
+        });
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
 configFunction.$inject = ['$routeProvider', '$httpProvider'];
